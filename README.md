@@ -8,6 +8,10 @@ This repository contains an example of how to use an OCI repository to store and
 - Some sort of OCI repository, this repository uses ghcr.io (githubs package registry)
 - An AWS Account
 
+### Custom runner image
+Under the `management/custom-images` directory is a Dockerfile that must be used in stacks that are running this workflow. That image adds docker cli and flux-cli to the spacelift runner image.
+The image is not hosted anywhere, so you will need to build it (via `docker build`) and push it to your own repository. Additionally, `management/stacks.tf` will need updated to use that `runner_image` you are hosting.
+
 ## Usage
 
 From a high level, the process is as follows:
